@@ -1,5 +1,5 @@
-# config.yaml
-
+## config.yaml
+```
 app:
   env: 'dev'
   port: '3000'
@@ -8,3 +8,4 @@ app:
     username: 'xxx'
     password: 'xxx'
     name: 'collection_name'
+```

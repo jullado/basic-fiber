@@ -4,7 +4,7 @@ app:
   env: 'dev'
   port: '3000'
   db:
-    host: 'xxx'
+    host: 'localhost:3000'
     username: 'xxx'
     password: 'xxx'
     name: 'collection_name'

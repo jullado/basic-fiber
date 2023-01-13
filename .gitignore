@@ -660,3 +660,5 @@ MigrationBackup/
 config.*
 
 .vscode
+
+docker-compose.yml

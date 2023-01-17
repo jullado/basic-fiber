@@ -14,6 +14,7 @@ import (
 func init() {
 	config.InitEnvironment()
 	database.InitialDBMongo()
+	database.InitialRedis()
 }
 
 func main() {
@@ -38,6 +39,7 @@ func main() {
 	requestGroup := app.Group("/request")
 	centrifugalGroup := app.Group("/centrifugal")
 	emailGroup := app.Group("/email")
+	redisGroup := app.Group("/redis")
 
 	// middleware
 	middlewares.MiddlewareMain(app)
@@ -49,6 +51,7 @@ func main() {
 	routes.RouterRequest(requestGroup)
 	routes.RouterCentrifugal(centrifugalGroup)
 	routes.RouterEmail(emailGroup)
+	routes.RouterRedis(redisGroup)
 
 	// Start server
 	env := viper.GetString("app.env")

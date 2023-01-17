@@ -5,6 +5,7 @@ go 1.17
 require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
+	github.com/go-redis/redis v6.15.9+incompatible // indirect
 	github.com/gofiber/fiber/v2 v2.39.0 // indirect
 	github.com/golang/snappy v0.0.1 // indirect
 	github.com/google/uuid v1.3.0 // indirect

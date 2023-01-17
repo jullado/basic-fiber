@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/go-redis/redis"
 	"github.com/spf13/viper"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -19,6 +20,9 @@ var (
 	Users *mongo.Collection
 	Tests *mongo.Collection
 	Anime *mongo.Collection
+
+	// Redis
+	Redis_Client *redis.Client
 )
 
 func InitialDBMongo() {
@@ -46,4 +50,23 @@ func InitialDBMongo() {
 	Tests = DB.Collection("tests")
 
 	fmt.Println("DB connection:", URI)
+}
+
+func InitialRedis() {
+	address := viper.GetString("app.redis.address")
+	password := viper.GetString("app.redis.password")
+
+	Redis_Client = redis.NewClient(&redis.Options{
+		Addr:     address,
+		Password: password, // no password set
+		DB:       0,        // use default DB
+	})
+
+	pong, err := Redis_Client.Ping().Result()
+	if err != nil {
+		fmt.Println("Redis connection error:", address)
+		panic(pong)
+	}
+
+	fmt.Println("Redis connection:", address)
 }

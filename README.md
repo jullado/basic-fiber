@@ -8,4 +8,7 @@ app:
     username: 'xxx'
     password: 'xxx'
     name: 'collection_name'
+  redis:
+    address: 'localhost:3003'
+    password: ''
 ```
